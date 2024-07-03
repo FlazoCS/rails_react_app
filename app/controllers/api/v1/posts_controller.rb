@@ -18,9 +18,9 @@ class Api::V1::PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
+    # Can't render @post ecause we are in /api/v1/posts
     if @post.save
-      render json: @post, status: :created, location: @post
+      render json: @post, status: :created, location: api_v1_post_url(@post)
     else
       render json: @post.errors, status: :unprocessable_entity
     end
