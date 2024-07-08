@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_02_122320) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_06_193047) do
+  create_table "chat_transcripts", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "msg_section_id"
+    t.integer "case_id"
+    t.integer "officer_id"
+    t.string "user"
+    t.integer "MOP_number"
+    t.text "message"
+    t.string "topic"
+    t.string "url"
+    t.datetime "time"
+    t.boolean "isAudited"
+    t.string "attachment_type"
+    t.integer "attachment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachment_type", "attachment_id"], name: "index_chat_transcripts_on_attachment"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
