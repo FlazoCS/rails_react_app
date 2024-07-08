@@ -8,6 +8,8 @@ function NavBar() {
             <Link to="/">Posts List</Link>
             {" | "}
             <Link to="/new">New Post</Link>
+            {" | "}
+            <Link to="/upload-csv">Upload CSV</Link>
         </nav>
     );
 }
